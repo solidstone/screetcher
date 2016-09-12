@@ -13,4 +13,11 @@ RSpec.describe User, type: :model do
   	user.username = "fail#me"
   	expect(user).to_not be_valid
   end
+
+  it "has space in username" do
+  	user.username = "fail me"
+  	expect(user).to_not be_valid
+  end
+
+  
 end
