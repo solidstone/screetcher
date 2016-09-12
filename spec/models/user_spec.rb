@@ -43,5 +43,11 @@ RSpec.describe User, type: :model do
 	  	user.password = "nothis"
 	  	expect(user.reload.password).to_not eq(password)
 	  end
+	  it "should not allow duplicate usernames" do
+	  	user.username = "bob"
+	  	user.save
+	  	user2 = FactoryGirl.build(:user, username: "bob")
+	  	expect(user2).to_not be_valid
+	  end
 	end
 end
