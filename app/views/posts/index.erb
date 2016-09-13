@@ -1,0 +1,8 @@
+<h1>Posts</h1>
+<% if current_user %>
+	Welcome <%= current_user.username %>
+<% end %>
+<% @posts.each do |post| %>
+	<% post.content %> <br />
+	By: <% post.user.username %>
+<% end %>
