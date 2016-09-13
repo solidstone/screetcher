@@ -1,0 +1,20 @@
+<h1>Signup For Screetcher</h1>
+
+
+
+<%= form_for @user, url: '/users' do |f| %>
+
+<% if @user.errors.any? %>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+Username: <%= f.text_field :username %><br />
+
+Password: <%= f.password_field :password %><br />
+  <%= f.submit "Create User" %>
+<% end %>
