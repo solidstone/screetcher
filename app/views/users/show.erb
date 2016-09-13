@@ -1,5 +1,5 @@
 <%= @user.username %> 
-<% if @user.followed(current_user) %>
+<% if current_user && @user.followed(current_user) %>
 	Following
 <% else %>
 	<%= link_to "Follow", "/follows/create/#{@user.id}"  %>
