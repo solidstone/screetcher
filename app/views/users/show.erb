@@ -1,0 +1,5 @@
+<%= @user.username %>
+<% @user.posts.each do |post| %>
+	<%= post.content %> <br />
+	Posted On: <%= post.created_at.to_formatted_s(:long) %> <br />
+<% end %>

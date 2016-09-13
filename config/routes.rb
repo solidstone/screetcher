@@ -65,4 +65,5 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   post '/posts' => 'posts#create'
+  get '/users/:id' => 'users#show'
 end
