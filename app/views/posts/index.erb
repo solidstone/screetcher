@@ -1,8 +1,10 @@
 <h1>Posts</h1>
 <% if current_user %>
 	Welcome <%= current_user.username %>
+    <%= render partial: "form" %>
+
 <% end %>
 <% @posts.each do |post| %>
-	<% post.content %> <br />
-	By: <% post.user.username %>
+	<%= post.content %> <br />
+	By: <%= post.user.username %> Posted On: <%= post.created_at.to_formatted_s(:long) %> <br />
 <% end %>
