@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.order('created_at DESC').all
+		if current_user
+			@posts = current_user.posts.order('created_at DESC')
+		else
+			@posts = Post.order('created_at DESC').all
+		end
 		@post = Post.new
 	end
 	def create

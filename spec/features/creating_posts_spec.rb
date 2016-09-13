@@ -28,7 +28,7 @@ feature 'creating a post' do
 		post = FactoryGirl.create(:post, user: user2, content: "where is this post")
   		login_user(user)
   		visit root_path
-
+  		
   		expect(page).to_not have_content 'where is this post'
   	end
   	scenario 'User should be able to see followed users posts' do

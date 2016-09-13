@@ -1,5 +1,5 @@
 <%= @user.username %>
-<% @user.posts.each do |post| %>
+<% @user.posts.order('created_at DESC').each do |post| %>
 	<%= post.content %> <br />
 	Posted On: <%= post.created_at.to_formatted_s(:long) %> <br />
 <% end %>
