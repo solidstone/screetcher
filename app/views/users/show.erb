@@ -1,4 +1,10 @@
-<%= @user.username %>
+<%= @user.username %> 
+<% if @user.followed(current_user) %>
+	Following
+<% else %>
+	<%= link_to "Follow", "/follows/create/#{@user.id}"  %>
+<% end %>	
+
 <% @user.posts.order('created_at DESC').each do |post| %>
 	<%= post.content %> <br />
 	Posted On: <%= post.created_at.to_formatted_s(:long) %> <br />

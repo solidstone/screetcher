@@ -5,6 +5,14 @@ feature 'viewing a user' do
   	let(:post) do
   		FactoryGirl.create(:post, user: user)
   	end
+  	def login_user(user)
+  		user.save
+
+		visit login_path
+		fill_in 'username', with: user.username
+    	fill_in 'password', with: user.password
+    	click_button 'Login'
+  	end
   	scenario 'Visiting a specific user should show posts' do
   		post
   		visit "/users/#{user.id}"
@@ -12,8 +20,14 @@ feature 'viewing a user' do
 
 
   	end
-	scenario 'User should be able to follow other users' do
-  		
+	scenario 'User should be able to follow other users' do  		
+  		user2 = FactoryGirl.create(:user)
+  		login_user(user2)
+  		post
+  		visit "/users/#{user.id}"
+  		click_link('Follow')
+  		expect(page).to have_content 'Following'
+
   	end
   	scenario 'User should not be able to follow themselves' do
   		

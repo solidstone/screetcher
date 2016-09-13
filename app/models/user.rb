@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 	has_many :posts	
+
+	def followed(user)
+		if Follow.where(user_id: user.id, followed_id: id).count > 0
+			true
+		else 
+			false
+		end
+	end
 end
