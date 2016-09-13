@@ -8,8 +8,8 @@ RSpec.describe Follow, type: :model do
   	expect(follow).to be_valid
   end
   it "should not be valid without user" do
-  	follow.user = nil
-	expect(follow).to_not be_valid
+    follow.user = nil
+	  expect(follow).to_not be_valid
   end
   it "should not be valid without a user being followed" do
   	follow.followed = nil
