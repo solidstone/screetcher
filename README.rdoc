@@ -5,8 +5,8 @@ Welcome to Screetcher, an app that I like to imagine is very similar to a pre-be
 to get started Run:
 bundle install
 
-This database is sqlite. Run:
-
+This database is postgresql. Run:
+rake db:create
 bundle exec rake db:migrate
 
 to get database to current version
