@@ -1,28 +1,21 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Screetcher, an app that I like to imagine is very similar to a pre-beta version of Twitter.
 
-Things you may want to cover:
+to get started Run:
+bundle install
 
-* Ruby version
+This database is sqlite. Run:
 
-* System dependencies
+bundle exec rake db:migrate
 
-* Configuration
+to get database to current version
 
-* Database creation
+This project uses rspec and capybara for testing. To test run: 
+bundle exec rspec
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
 
 * ...
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
