@@ -21,6 +21,18 @@ feature 'signing in and out' do
 	end
 
 	scenario 'user logs out' do
+		user.save
+		visit login_path
+		fill_in 'username', with: user.username
+    	fill_in 'password', with: user.password
+    	click_button 'Login'
+		visit root_path
+		click_link "Log out"
+		expect(page).to have_content 'Sign up'
 	end
+
+	scenario 'user logs in from front page' do
+	end
+
 
 end
