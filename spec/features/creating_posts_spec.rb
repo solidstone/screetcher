@@ -2,7 +2,9 @@ feature 'creating a post' do
 	let(:user) do 
   		FactoryGirl.create(:user)
   	end
-
+  let(:post) do
+      FactoryGirl.create(:post, user: user)
+    end
 
   	def login_user(user)
   		user.save
@@ -31,6 +33,16 @@ feature 'creating a post' do
   		
   		expect(page).to_not have_content 'where is this post'
   	end
+    scenario 'visitor should be able to click username' do
+      user
+      post
+      visit root_path
+      click_link user.username
+      expect(page).to have_content post.content
+
+
+    end
+
   	scenario 'User should be able to see followed users posts' do
   		
   	end
